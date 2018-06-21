@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
-import Routes from './Routes'
+import { init } from '@rematch/core'
+import { Provider } from 'react-redux'
 
-class App extends Component {
-  render() {
-    return <Routes />
-  }
-}
+import Routes from './Routes'
+import * as models from './models'
+
+const store = init({
+  models,
+})
+
+const App = () => (
+  <Provider store={store}>
+    <Routes />
+  </Provider>
+)
 
 export default App
